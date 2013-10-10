@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+
+
+    <TextView
+        android:id="@+id/txtName"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textColor="@color/black"
+        android:layout_alignParentLeft="true" android:layout_marginLeft="33dp"
+        android:layout_alignTop="@+id/textView1"
+        android:textSize="30dp"
+            />
+    <TextView android:id="@+id/textView" android:layout_height="wrap_content" android:layout_width="wrap_content"
+              android:text="@string/txtHi" android:textColor="@color/black"
+              android:layout_alignParentLeft="true" android:layout_alignTop="@+id/txtName"
+              android:textSize="30dp"/>
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="@string/logout"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:textSize="30dp"
+        android:textColor="@color/red"
+        android:clickable="true"
+        android:id="@+id/textView1"/>
+    <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/horizontalScrollView" android:layout_alignLeft="@+id/textView"
+            android:layout_below="@+id/txtName"/>
+    <GridLayout
+            android:layout_width="133dp"
+            android:layout_height="wrap_content" android:layout_alignParentLeft="true" android:layout_marginLeft="107dp"
+            android:layout_alignParentTop="true" android:layout_marginTop="63dp"
+            android:rowCount="4" android:columnCount="2" android:layout_alignRight="@+id/textView1"
+            android:id="@+id/gridLayout" android:layout_alignParentRight="true"
+            android:layout_alignWithParentIfMissing="false"
+            android:layout_alignParentEnd="false">
+            <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="@string/address"
+                    android:textColor="@color/black"
+                    android:paddingRight="12dp"
+                    android:textSize="30dp"
+                />
+            <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:id="@+id/address"
+                    android:inputType=""
+                    android:textSize="30dp"
+                    android:text="address"
+                    />
+
+        <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:id="@+id/birthday"
+                android:text="@string/birthday"
+                android:textColor="@color/black"
+                android:textSize="30dp"
+                />
+        <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:id="@+id/txtBirthday"
+                android:inputType=""
+                android:textSize="30dp"
+                android:text="birthday"
+                />
+            <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:id="@+id/online"
+                    android:text="@string/online"
+                    android:textColor="@color/black"
+                    android:paddingRight="24dp"
+                    android:textSize="30dp"
+                    />
+            <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="fill_parent"
+                    android:id="@+id/txtOnline"
+                    android:inputType=""
+                    android:textSize="30dp"
+                    android:text="time"
+                    />
+
+        <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="@string/gender"
+                android:id="@+id/Gender"
+                android:textColor="@color/black"
+                android:paddingRight="15dp"
+                android:textSize="30dp"
+                />
+        <TextView
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:id="@+id/txtGender"
+                android:text="Gender"
+                android:inputType=""
+                android:textSize="30dp"
+                />
+        <RadioGroup
+                android:id="@+id/radioSex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                >
+
+            <RadioButton
+                    android:id="@+id/radioMale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_male"
+                    android:checked="true" />
+
+            <RadioButton
+                    android:id="@+id/radioFemale"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_female" />
+
+        </RadioGroup>
+
+        <DatePicker
+            android:id="@+id/dpResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            />
+
+        <TimePicker
+                android:id="@+id/timePicker1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                />
+
+    </GridLayout>
+    <CheckBox
+            android:layout_width="131dp"
+            android:layout_height="wrap_content"
+            android:text="@string/checkBox"
+            android:textColor="@color/black"
+            android:id="@+id/checkBox"
+            android:layout_toRightOf="@+id/horizontalScrollView" android:layout_below="@+id/gridLayout"
+            android:layout_alignRight="@+id/textView1" android:checked="true"/>
+    <ImageView
+            android:layout_width="79dp"
+            android:layout_height="156dp"
+            android:id="@+id/imageView"
+            android:src="@drawable/ic_launcher"
+            android:layout_alignLeft="@+id/textView" android:layout_alignTop="@+id/gridLayout"
+            android:layout_alignBottom="@+id/gridLayout"/>
+
+
+</RelativeLayout>

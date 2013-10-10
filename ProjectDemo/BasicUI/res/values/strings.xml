@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">BasicUI</string>
+    <string name="name">Username:</string>
+    <string name="password">Password:</string>
+    <string name="login">Login</string>
+    <string name="txtHi">Hi, </string>
+    <string name="logout">Logout</string>
+    <string name="image">image</string>
+    <string name="address">Address:</string>
+    <string name="gender">Gender :</string>
+    <string name="birthday">Birthday:</string>
+    <string name="online">Online:</string>
+    <string name="checkBox">Show friend list</string>
+    <string name="radio_male">Male</string>
+    <string name="radio_female">Female</string>
 </resources>
