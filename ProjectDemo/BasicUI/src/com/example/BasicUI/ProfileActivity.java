@@ -1,9 +1,8 @@
 package com.example.BasicUI;
 
-import android.app.Activity;
-import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.app.TimePickerDialog;
+import android.app.*;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +26,8 @@ public class ProfileActivity extends Activity
     private int day;
     private int hour;
     private int minute;
+    private TextView address;
+    private TextView addressText;
     private TextView buttonBirthday;
     private TextView buttonTimeOnline;
     private TextView radioSex;
@@ -40,6 +41,7 @@ public class ProfileActivity extends Activity
     static final int DATE_DIALOG_ID = 999;
     static final int TIME_DIALOG_ID = 888;
     static final int SEX_DIALOG_ID = 777;
+    final Context context = this;
     @Override
     public void onCreate(Bundle saveInstanceState)
     {
@@ -49,13 +51,51 @@ public class ProfileActivity extends Activity
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
         txtName.setText(" "+name);
+        address = (TextView)findViewById(R.id.addresID);
+        addressText = (TextView)findViewById(R.id.address);
         setCurrentDateOnView();
         setCurrentTimeOnView();
+        addListenerAddress();
         addListenerOnButtonBirthday();
         addListenerOnButtonTime();
         addListenerRadioSex();
+        if(saveInstanceState!= null)
+        {
+            addressText.setText(saveInstanceState.get("address").toString());
+        }
+
     }
 
+    private void addListenerAddress() {
+        address.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewListAddress();
+
+            }
+
+            private void viewListAddress() {
+
+                final String[] addressList = getResources().getStringArray(R.array.province);
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Show List");
+                builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {}
+                });
+
+                builder.setSingleChoiceItems(addressList,-1, new DialogInterface.OnClickListener() {
+
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        addressText.setText(addressList[which]);
+                    }
+                });
+                builder.show();
+            }
+        });
+    }
 
 
     private void addListenerRadioSex() {
@@ -213,4 +253,10 @@ public class ProfileActivity extends Activity
                 }
             };
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState)
+    {
+        super.onSaveInstanceState(outState);
+        outState.putString("address", address.getText().toString());
+    }
 }
